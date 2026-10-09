@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人工作台</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- 顶部栏 -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="logo">⚡</span>
+        <h1>个人工作台</h1>
+      </div>
+      <div class="topbar-right">
+        <span id="greeting" class="greeting">你好</span>
+        <button id="themeToggle" class="icon-btn" title="切换主题">🌙</button>
+      </div>
+    </header>
+
+    <!-- 欢迎区：时间 + 日期 -->
+    <section class="hero card">
+      <div class="hero-time">
+        <span id="clock">00:00</span>
+        <span id="seconds">00</span>
+      </div>
+      <div class="hero-date">
+        <span id="dateText">—</span>
+        <span id="weekText">—</span>
+      </div>
+      <div class="hero-motto" id="motto">今天也要元气满满 ✨</div>
+    </section>
+
+    <!-- 主体网格 -->
+    <main class="grid">
+
+      <!-- 待办清单 -->
+      <section class="card panel todo-panel">
+        <div class="panel-head">
+          <h2>📋 待办清单</h2>
+          <span id="todoCount" class="badge">0 项</span>
+        </div>
+        <form id="todoForm" class="todo-form">
+          <input id="todoInput" type="text" placeholder="添加一个待办事项，回车确认…" maxlength="60" autocomplete="off" />
+          <button type="submit">添加</button>
+        </form>
+        <ul id="todoList" class="todo-list"></ul>
+        <div class="panel-foot">
+          <button class="link-btn" data-filter="all">全部</button>
+          <button class="link-btn" data-filter="active">未完成</button>
+          <button class="link-btn" data-filter="done">已完成</button>
+          <button class="link-btn danger" id="clearDone">清除已完成</button>
+        </div>
+      </section>
+
+      <!-- 番茄钟 -->
+      <section class="card panel pomodoro-panel">
+        <div class="panel-head">
+          <h2>🍅 番茄钟</h2>
+          <span id="pomoRound" class="badge">第 1 轮</span>
+        </div>
+        <div class="pomo-time" id="pomoTime">25:00</div>
+        <div class="pomo-mode">
+          <button class="link-btn active" data-mode="work">专注 25 分钟</button>
+          <button class="link-btn" data-mode="break">休息 5 分钟</button>
+        </div>
+        <div class="pomo-actions">
+          <button id="pomoStart" class="primary-btn">开始</button>
+          <button id="pomoReset" class="ghost-btn">重置</button>
+        </div>
+        <p class="pomo-tip">专注完成一件事，然后好好休息。</p>
+      </section>
+
+      <!-- 快捷链接 -->
+      <section class="card panel links-panel">
+        <div class="panel-head">
+          <h2>🔗 快捷入口</h2>
+          <button id="addLinkBtn" class="icon-btn" title="添加链接">＋</button>
+        </div>
+        <div id="linksGrid" class="links-grid"></div>
+      </section>
+
+      <!-- 随手记 -->
+      <section class="card panel notes-panel">
+        <div class="panel-head">
+          <h2>✏️ 随手记</h2>
+          <span class="badge" id="noteSaved">自动保存</span>
+        </div>
+        <textarea id="noteArea" class="note-area" placeholder="把想法、灵感、临时信息记在这里…自动保存到本地"></textarea>
+      </section>
+
+    </main>
+
+    <footer class="footer">个人工作台 · 纯静态页面 · 数据保存在你的浏览器本地</footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
